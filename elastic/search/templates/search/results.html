@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% block results %}
+        <table class="table table-bordered" style="border-width: 2px">
+    <th>
+        <td>
+
+        </td>
+    </th>
+{% for row in res %}
+    <tr>
+        {% for col in row %}
+        <td>
+            {{ col_val }}
+        </td>
+        {% endfor %}
+    </tr>
+
+{% endfor %}
+</table>
+{% endblock results %}

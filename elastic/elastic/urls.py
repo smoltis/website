@@ -1,4 +1,4 @@
-"""myproject URL Configuration
+"""elastic URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from search import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('home.urls')),
-    url(r'^myapp/$', include('myapp.urls')),
-    url(r'^blog/$', include('blog.urls')),
+    url(r'^$', views.home, name = 'home'),
 ]

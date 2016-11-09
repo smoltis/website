@@ -1,21 +1,76 @@
-{% extends "home.html" %}
+{% extends "search/home.html" %}
+
+
 
 {% block results %}
-        <table class="table table-bordered" style="border-width: 2px">
-    <th>
-        <td>
-
-        </td>
-    </th>
-{% for row in res %}
+{% if found > 0 %}
+Documents found: {{ found }}{% if found > 50 %}, displaying 50
+{% endif %}
+        <table border=1 class="table table-bordered" style="border-color: #341244;border-width: 0px">
     <tr>
-        {% for col in row %}
-        <td>
-            {{ col_val }}
-        </td>
-        {% endfor %}
+        <th>
+            Country
+        </th>
+        <th>
+            ProductID
+        </th>
+        <th>
+            Pct
+        </th>
+        <th>
+            Package
+        </th>
+        <th>
+            Price
+        </th> 
+        <th>
+            PartName
+        </th> 
+        <th>
+            Manufacturer
+        </th> 
+        <th>
+            Qtyres
+        </th> 
+        <th>
+            Qty
+        </th>
+                                             
     </tr>
-
+{% for obj in objects %}
+    <tr>
+        <td>
+            {{ obj.Country }}
+        </td>
+        <td>
+            {{ obj.ProductID }}
+        </td>
+        <td>
+            {{ obj.Pct }}
+        </td>
+        <td>
+            {{ obj.Package }}
+        </td>
+        <td>
+            {{ obj.Price }}
+        </td> 
+        <td>
+            {{ obj.PartName }}
+        </td> 
+        <td>
+            {{ obj.Manufacturer }}
+        </td> 
+        <td>
+            {{ obj.Qtyres }}
+        </td> 
+        <td>
+            {{ obj.Qty }}
+        </td>                                               
+    </tr>
 {% endfor %}
 </table>
+{% elif found == 0 %}
+Nothing found
+{% endif %}
+
 {% endblock results %}
